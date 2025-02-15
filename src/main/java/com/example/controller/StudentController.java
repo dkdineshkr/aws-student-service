@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.entity.Student;
@@ -21,6 +22,7 @@ import jakarta.validation.Valid;
  * routes them to the appropriate service methods.
  */
 @RestController // Marks this class as a RESTful controller.
+@RequestMapping("/studentmgmt")
 public class StudentController {
 
 	@Autowired
@@ -30,7 +32,7 @@ public class StudentController {
 	 * Handles POST requests to save a new Student.
 	 * 
 	 */
-	@PostMapping("/students")
+	@PostMapping("/student")
 	public Student saveStudent(@Valid @RequestBody Student student) {
 		return studentService.saveStudent(student);
 	}
